@@ -71,11 +71,11 @@ VALUES
 
 INSERT INTO student (fullname, address_id, age, phone, class_id)
 VALUES
-('Huy', 1, 20, 234, 1),('Toàn', 1, 21, 876, 2),
-('An', 2, 20, 542, 2),('Bình', 5, 22, 319, 2),
-('Phúc', 3, 21, 765, 3),('Linh', 2, 21, 482, 5),
-('Trúc', 4, 20, 103, 4),('Khánh', 5, 20, 657, 5),
-('Hòa', 3, 19, 491, 3),('Dũng', 1, 23, 208, 2);
+('Đặng An Huy', 1, 20, 234, 1),('Nguyễn Thế Toàn', 1, 21, 876, 2),
+('Khương Phúc An', 2, 20, 542, 2),('Vũ Văn Bình', 5, 22, 319, 2),
+('Hoàng Văn Phúc', 3, 21, 765, 3),('Nguyễn Tiến Linh', 2, 21, 482, 5),
+('Vũ Viên Trúc', 4, 20, 103, 4),('Hà Phúc Anh', 5, 20, 657, 5),
+('Vũ Quỳnh Nga', 3, 19, 491, 3),('Nguyễn Tiến Dũng', 1, 23, 208, 2);
 
 INSERT INTO course (name, description)
 VALUES
@@ -122,3 +122,12 @@ ON course.id = point.course_id
 GROUP BY course.id
 ORDER BY course.id ASC
 LIMIT 1;
+
+-- Tìm kiếm HV có họ Nguyen
+SELECT * FROM student WHERE fullname LIKE 'Nguyễn %';
+-- Tìm kiếm HV có ten Anh
+SELECT * FROM student WHERE fullname LIKE '% Anh%';
+-- Tìm kiếm HV có độ tuổi từ 18-20
+SELECT * FROM student WHERE age >= 18 AND age <= 20;
+-- Tìm kiếm HV có id là 2 hoặc 3
+SELECT * FROM student WHERE id = 2 OR id = 3;
